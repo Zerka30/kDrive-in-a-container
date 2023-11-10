@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /mnt/kdrive
 
 # Copiez le fichier de configuration WebDAV
-RUN echo "${KDRIVE_URL} ${KDRIVE_EMAIL} ${KDRIVE_PASSWORD}"
-COPY davfs2/secrets /etc/davfs2/secrets
+RUN echo "${KDRIVE_URL} ${KDRIVE_EMAIL} ${KDRIVE_PASSWORD}" > /etc/davfs2/secrets
 
 # Définir les permissions appropriées pour le fichier secrets
 RUN chmod 600 /etc/davfs2/secrets
